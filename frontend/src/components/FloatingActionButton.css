@@ -1,0 +1,245 @@
+.fab-container {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.fab-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-accent);
+}
+
+.fab-button.fab-open {
+    transform: rotate(45deg);
+    background: var(--text-secondary);
+}
+
+.fab-icon {
+    font-size: 2rem;
+    color: var(--btn-post-text);
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.fab-menu {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fab-menu-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    animation: popIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Position items in perfect hemispherical arc - all equidistant from center */
+/* Radius = 120px, angles: -67.5°, -22.5°, 22.5°, 67.5° */
+
+.fab-menu-item:nth-child(1) {
+    /* Top-left position - Post (angle: -67.5°) */
+    right: 46px;
+    /* 120 * cos(-67.5°) ≈ 46px */
+    top: -111px;
+    /* 120 * sin(-67.5°) ≈ -111px */
+    animation-delay: 0.05s;
+}
+
+.fab-menu-item:nth-child(2) {
+    /* Top position - Story (angle: -22.5°) */
+    right: 111px;
+    /* 120 * cos(-22.5°) ≈ 111px */
+    top: -46px;
+    /* 120 * sin(-22.5°) ≈ -46px */
+    animation-delay: 0.1s;
+}
+
+.fab-menu-item:nth-child(3) {
+    /* Bottom position - Live (angle: 22.5°) */
+    right: 111px;
+    /* 120 * cos(22.5°) ≈ 111px */
+    top: 46px;
+    /* 120 * sin(22.5°) ≈ 46px */
+    animation-delay: 0.15s;
+}
+
+.fab-menu-item:nth-child(4) {
+    /* Bottom-left position - Private Safe (angle: 67.5°) */
+    right: 46px;
+    /* 120 * cos(67.5°) ≈ 46px */
+    top: 111px;
+    /* 120 * sin(67.5°) ≈ 111px */
+    animation-delay: 0.2s;
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fab-menu-item:hover {
+    transform: scale(1.15);
+    border-color: var(--accent);
+}
+
+.fab-menu-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab-menu-label {
+    position: absolute;
+    right: 60px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-card);
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.fab-menu-item:hover .fab-menu-label {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fab-container {
+        right: 1.5rem;
+    }
+
+    .fab-button {
+        width: 56px;
+        height: 56px;
+    }
+
+    .fab-icon {
+        font-size: 1.75rem;
+    }
+
+    .fab-menu-item {
+        width: 46px;
+        height: 46px;
+    }
+
+    .fab-menu-item:nth-child(1) {
+        right: 38px;
+        /* 100 * cos(-67.5°) */
+        top: -92px;
+        /* 100 * sin(-67.5°) */
+    }
+
+    .fab-menu-item:nth-child(2) {
+        right: 92px;
+        /* 100 * cos(-22.5°) */
+        top: -38px;
+        /* 100 * sin(-22.5°) */
+    }
+
+    .fab-menu-item:nth-child(3) {
+        right: 92px;
+        /* 100 * cos(22.5°) */
+        top: 38px;
+        /* 100 * sin(22.5°) */
+    }
+
+    .fab-menu-item:nth-child(4) {
+        right: 38px;
+        /* 100 * cos(67.5°) */
+        top: 92px;
+        /* 100 * sin(67.5°) */
+    }
+
+    .fab-menu-icon {
+        font-size: 1.25rem;
+    }
+
+    .fab-menu-label {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fab-container {
+        right: 1rem;
+    }
+
+    .fab-button {
+        width: 52px;
+        height: 52px;
+    }
+
+    .fab-menu-item {
+        width: 44px;
+        height: 44px;
+    }
+
+    .fab-menu-item:nth-child(1) {
+        right: 34px;
+        /* 90 * cos(-67.5°) */
+        top: -83px;
+        /* 90 * sin(-67.5°) */
+    }
+
+    .fab-menu-item:nth-child(2) {
+        right: 83px;
+        /* 90 * cos(-22.5°) */
+        top: -34px;
+        /* 90 * sin(-22.5°) */
+    }
+
+    .fab-menu-item:nth-child(3) {
+        right: 83px;
+        /* 90 * cos(22.5°) */
+        top: 34px;
+        /* 90 * sin(22.5°) */
+    }
+
+    .fab-menu-item:nth-child(4) {
+        right: 34px;
+        /* 90 * cos(67.5°) */
+        top: 83px;
+        /* 90 * sin(67.5°) */
+    }
+}

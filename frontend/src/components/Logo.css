@@ -1,0 +1,55 @@
+.cc-logo-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.cc-logo-container.hover-scale:hover {
+    transform: scale(1.1);
+}
+
+.cc-logo-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cc-logo-svg svg .eye-path {
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+}
+
+.cc-logo-svg svg .eye-path.blinking {
+    transform: scaleY(0.1);
+}
+
+.cc-logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: inherit;
+    letter-spacing: -0.5px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* For sidebar layout where logo and text are horizontal */
+.sidebar-logo {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 12px;
+}
+
+.sidebar-logo .cc-logo-text {
+    font-size: 1.4rem;
+    margin-left: 0;
+    font-family: var(--font-heading, inherit);
+    color: var(--accent, inherit);
+}
+
+.sidebar-logo .cc-logo-svg {
+    flex-shrink: 0;
+}

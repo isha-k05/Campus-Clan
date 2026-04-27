@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Neon Dusk (Dark Mode) - Defaults to dark if no attribute */
+  --neon-bg: #0A0A0A;
+  --neon-card: #111111;
+  --neon-accent: #00E5CC;
+  --neon-text: #FFFFFF;
+  --neon-text-dim: #888888;
+  --neon-border: rgba(255, 255, 255, 0.03);
+  
+  /* Theme 2: Warm Canvas (Light) */
+  --canvas-bg: #FAF7F2;
+  --canvas-card: #FFFFFF;
+  --canvas-sidebar: #F2EDE5;
+  --canvas-accent: #E8621A;
+  --canvas-text: #1A1008;
+  --canvas-text-dim: #4A3F35;
+  --canvas-shadow: 0 8px 30px rgba(74, 63, 53, 0.08);
+  
+  /* Theme 3: Pure Campus (Light) */
+  --pure-bg: #FFFFFF;
+  --pure-card: #FFFFFF;
+  --pure-border: #F0F0F0;
+  --pure-accent: #3B82F6;
+  --pure-text: #0A0A0A;
+  --pure-text-dim: #6B7280;
+
+  /* Theme 4: Midnight Forest (Dark) */
+  --forest-bg: #0D1A12;
+  --forest-card: #111F16;
+  --forest-sidebar: #0A1510;
+  --forest-accent: #4ADE80;
+  --forest-text: #F0FDF4;
+  --forest-text-dim: #6B8F72;
+
+  /* Theme 5: Sunset Gradient Story (Warm) */
+  --sunset-bg: linear-gradient(180deg, #FFF8F0 0%, #FFF0F5 100%);
+  --sunset-card: #FFFFFF;
+  --sunset-accent: #FF4757;
+  --sunset-text: #1A1A2E;
+  --sunset-text-dim: #4A4A6A;
+  --sunset-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+
+  /* Shared Tokens */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Apply variables based on theme attribute on .main-layout */
+/* Theme 1: Neon Dusk (Dark) */
+.main-layout[data-theme="t1"] {
+  --bg-page: var(--neon-bg);
+  --bg-card: var(--neon-card);
+  --bg-sidebar: var(--neon-bg);
+  --accent: var(--neon-accent);
+  --accent-rgb: 0, 229, 204;
+  --text-primary: var(--neon-text);
+  --text-secondary: var(--neon-text-dim);
+  --border-card: var(--neon-border);
+  --shadow-card: none;
+  --btn-post-bg: var(--neon-accent);
+  --btn-post-text: #000000;
+  --avatar-ring: 0 0 10px var(--neon-accent);
+  --nav-active-bg: transparent;
+  --nav-active-border: var(--neon-accent);
+  --shadow-glow: 0 0 15px rgba(0, 229, 204, 0.3);
+  --shadow-accent: 0 4px 15px rgba(0, 229, 204, 0.3);
+}
+
+/* Theme 2: Warm Canvas (Light) */
+.main-layout[data-theme="t2"] {
+  --bg-page: var(--canvas-bg);
+  --bg-card: var(--canvas-card);
+  --bg-sidebar: var(--canvas-sidebar);
+  --accent: var(--canvas-accent);
+  --accent-rgb: 232, 98, 26;
+  --text-primary: var(--canvas-text);
+  --text-secondary: var(--canvas-text-dim);
+  --border-card: none;
+  --shadow-card: var(--canvas-shadow);
+  --btn-post-bg: var(--canvas-accent);
+  --btn-post-text: #FFFFFF;
+  --avatar-ring: none;
+  --nav-active-bg: rgba(232, 98, 26, 0.08);
+  --nav-active-border: var(--canvas-accent);
+  --shadow-glow: none;
+  --shadow-accent: 0 4px 15px rgba(232, 98, 26, 0.2);
+}
+
+/* Theme 3: Pure Campus (Light) */
+.main-layout[data-theme="t3"] {
+  --bg-page: var(--pure-bg);
+  --bg-card: var(--pure-card);
+  --bg-sidebar: var(--pure-bg);
+  --accent: var(--pure-accent);
+  --accent-rgb: 59, 130, 246;
+  --text-primary: var(--pure-text);
+  --text-secondary: var(--pure-text-dim);
+  --border-card: var(--pure-border);
+  --shadow-card: none;
+  --btn-post-bg: transparent;
+  --btn-post-text: var(--pure-accent);
+  --btn-post-border: 1px solid var(--pure-accent);
+  --avatar-ring: none;
+  --nav-active-bg: rgba(59, 130, 246, 0.08);
+  --nav-active-border: var(--pure-accent);
+  --shadow-glow: none;
+  --shadow-accent: none;
+}
+
+/* Theme 4: Midnight Forest (Dark) */
+.main-layout[data-theme="t4"] {
+  --bg-page: var(--forest-bg);
+  --bg-card: var(--forest-card);
+  --bg-sidebar: var(--forest-sidebar);
+  --accent: var(--forest-accent);
+  --accent-rgb: 74, 222, 128;
+  --text-primary: var(--forest-text);
+  --text-secondary: var(--forest-text-dim);
+  --border-card: rgba(255, 255, 255, 0.02);
+  --shadow-card: none;
+  --btn-post-bg: var(--forest-accent);
+  --btn-post-text: var(--forest-bg);
+  --avatar-ring: 0 0 10px rgba(74, 222, 128, 0.2);
+  --nav-active-bg: rgba(74, 222, 128, 0.05);
+  --nav-active-border: var(--forest-accent);
+  --shadow-glow: 0 0 15px rgba(74, 222, 128, 0.1);
+  --shadow-accent: 0 4px 15px rgba(74, 222, 128, 0.2);
+}
+
+/* Theme 5: Sunset Gradient Story (Warm) */
+.main-layout[data-theme="t5"] {
+  --bg-page: var(--sunset-bg);
+  --bg-card: var(--sunset-card);
+  --bg-sidebar: transparent;
+  --accent: var(--sunset-accent);
+  --accent-rgb: 255, 71, 87;
+  --text-primary: var(--sunset-text);
+  --text-secondary: var(--sunset-text-dim);
+  --border-card: none;
+  --shadow-card: var(--sunset-shadow);
+  --btn-post-bg: var(--sunset-accent);
+  --btn-post-text: #FFFFFF;
+  --avatar-ring: none;
+  --nav-active-bg: rgba(255, 71, 87, 0.1);
+  --nav-active-border: var(--sunset-accent);
+  --shadow-glow: none;
+  --shadow-accent: 0 4px 15px rgba(255, 71, 87, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8fafc; /* Default background for auth pages */
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+.main-layout {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+  border: 3px solid var(--bg-page);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  opacity: 0.8;
+}
+
+/* Selection */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: var(--text-white);
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Utility Classes */
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

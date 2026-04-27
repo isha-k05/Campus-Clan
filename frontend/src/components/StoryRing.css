@@ -1,0 +1,98 @@
+/* ===== Story Ring Wrapper ===== */
+.story-ring-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 51px;
+    height: 51px;
+    min-width: 51px;
+    min-height: 51px;
+    max-width: 51px;
+    max-height: 51px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+
+    padding: 3px;
+    box-sizing: border-box;
+    /* Ring thickness */
+    border-radius: 50% !important;
+    background: transparent;
+
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Active Story Gradient */
+.story-ring-wrapper.has-story {
+    background: var(--accent);
+    box-shadow: var(--avatar-ring);
+}
+
+/* Viewed Story */
+.story-ring-wrapper.has-story.viewed {
+    background: var(--text-secondary);
+    opacity: 0.5;
+}
+
+/* Hover */
+.story-ring-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Inner Circle ===== */
+.story-ring-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-page);
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Ensure any child avatar fills the inner circle properly */
+.story-ring-inner > * {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+}
+
+/* ===== Profile Avatar (Fallback) ===== */
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+/* ===== Optional Pulse Animation ===== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+.story-ring-wrapper.has-story:not(.viewed) {
+    animation: pulse 2s ease-in-out infinite;
+}

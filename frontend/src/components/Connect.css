@@ -1,0 +1,203 @@
+.discover-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.discover-header {
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.search-container input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-container input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.user-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.user-info-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-primary);
+    overflow: hidden;
+    font-size: 1.25rem;
+}
+
+.user-avatar-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-text-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-full-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.user-college-name {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.user-row-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.row-follow-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--accent);
+    color: white;
+}
+
+.row-follow-btn.following {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    color: var(--text-primary);
+}
+
+.row-follow-btn:hover {
+    filter: brightness(0.9);
+}
+
+.row-msg-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.row-msg-btn:hover {
+    background: var(--border-card);
+}
+
+.row-arrow {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.discover-loading, .discover-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Dark mode tweaks */
+[data-theme='dark'] .user-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Fixed width so "Follow" / "Following" / "Follow Back" never shifts the row */
+.row-follow-btn {
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+.row-follow-btn.btn-loading {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.row-follow-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.spin-icon {
+    animation: spin 0.8s linear infinite;
+}
